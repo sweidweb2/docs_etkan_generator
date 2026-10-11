@@ -1,0 +1,299 @@
+/* Shared proposal chrome: fonts, tokens, A4 page, cover skeleton, toolbar, PDF preview, print.
+   Proposal-specific sections/tables/cards stay in each proposal's own style.css. */
+
+@font-face { font-family:'Tajawal'; src:url('fonts/Tajawal-Regular.ttf'); font-weight:400; }
+@font-face { font-family:'Tajawal'; src:url('fonts/Tajawal-Medium.ttf'); font-weight:500; }
+@font-face { font-family:'Tajawal'; src:url('fonts/Tajawal-Bold.ttf'); font-weight:700; }
+@font-face { font-family:'Tajawal'; src:url('fonts/Tajawal-ExtraBold.ttf'); font-weight:800; }
+
+:root{
+  --navy:#171B2E;
+  --light:#EDF2F5;
+  --gray:#4B5261;
+  --gray-light:#8A93A2;
+  --rule:#3A4159;
+  --card-bg:#FFFFFF;
+  --card-border:#D6DBE3;
+  --accent:#3D7EFF;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0; padding:0;
+  font-family:'Tajawal',sans-serif;
+  color:var(--navy);
+  background:#9aa3af;
+  direction:ltr;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+@page{
+  size:A4;
+  margin:0;
+}
+
+/* ---------------- A4 PAGE ---------------- */
+.page{
+  width:210mm;
+  height:297mm;
+  background:var(--light);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.page-body{
+  flex:1;
+  padding:14mm 16mm 4mm 16mm;
+}
+.page-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:0 16mm 8mm;
+  padding:3.5mm 0 0;
+  border-top:0.5px solid #C7CDD8;
+  font-size:8.5pt;
+  font-weight:700;
+  color:var(--gray);
+  letter-spacing:0.3px;
+}
+.page-footer span:last-child{
+  font-size:10pt;
+  font-weight:800;
+  color:var(--navy);
+}
+
+@media screen{
+  body{ padding:16mm 0 36mm; }
+  .page{
+    margin:0 auto 12mm;
+    box-shadow:0 4px 28px rgba(23,27,46,.28);
+  }
+  .page:last-of-type{ margin-bottom:0; }
+}
+
+@media print{
+  html,body{ background:#fff; }
+  body{ padding:0; }
+  .page{
+    margin:0;
+    box-shadow:none;
+    break-after:page;
+    page-break-after:always;
+  }
+  .page:last-of-type{
+    break-after:auto;
+    page-break-after:auto;
+  }
+  .doc-toolbar,
+  .pdf-preview{ display:none !important; }
+}
+
+/* ---------------- COVER ---------------- */
+.page-cover{
+  background:var(--navy);
+  color:#fff;
+  display:block;
+}
+.cover-bracket-row{
+  display:flex;
+  justify-content:space-between;
+  padding:14mm 16mm 0 16mm;
+  color:#4A5170;
+  font-size:14pt;
+  font-weight:700;
+  letter-spacing:1px;
+  font-family:'Courier New',monospace;
+  direction:ltr;
+}
+.cover-brand{
+  text-align:center;
+  margin-top:8mm;
+  font-size:14pt;
+  font-weight:800;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#AEB6C9;
+}
+.cover-hero{
+  position:absolute;
+  top:76mm;
+  left:16mm;
+  right:16mm;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.cover-logo{
+  width:128mm;
+  height:auto;
+  display:block;
+  mix-blend-mode:screen;
+}
+.cover-textblock{
+  position:absolute;
+  left:16mm; right:16mm;
+  bottom:52mm;
+}
+.cover-eyebrow{
+  font-size:11pt;
+  font-weight:700;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:#AEB6C9;
+  margin-bottom:4mm;
+}
+.cover-rule{
+  width:26mm; height:1.4mm;
+  background:#fff;
+  margin:0 0 5mm 0;
+}
+.cover-desc{
+  font-size:13pt;
+  font-weight:500;
+  line-height:1.5;
+  color:#C4CAD8;
+}
+.cover-meta{
+  position:absolute;
+  left:16mm; right:16mm;
+  bottom:24mm;
+  border-top:0.5px solid var(--rule);
+  padding-top:5mm;
+  font-size:11pt;
+  color:#C4CAD8;
+  line-height:2;
+}
+.cover-meta b{ color:#fff; font-weight:700; }
+.cover-footer{
+  position:absolute;
+  left:16mm; right:16mm;
+  bottom:9mm;
+  border-top:0.5px solid var(--rule);
+  padding-top:3.5mm;
+  display:flex;
+  justify-content:space-between;
+  font-size:8.5pt;
+  font-weight:700;
+  letter-spacing:0.4px;
+  color:#8A93A2;
+}
+
+/* ---------------- PACKING ---------------- */
+#pack-source{ display:none !important; }
+
+.content-block{
+  break-inside:avoid;
+  page-break-inside:avoid;
+}
+.content-block + .content-block{
+  margin-top:3.5mm;
+}
+
+/* ---------------- TOOLBAR ---------------- */
+.doc-toolbar{
+  position:fixed;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:1000;
+  display:flex;
+  gap:8px;
+  padding:8px;
+  background:rgba(255,255,255,.94);
+  border:1px solid var(--card-border);
+  border-radius:14px;
+  box-shadow:0 8px 28px rgba(23,27,46,.22);
+  backdrop-filter:blur(8px);
+}
+.tb-btn{
+  appearance:none;
+  border:0;
+  cursor:pointer;
+  font-family:'Tajawal',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:148px;
+  height:42px;
+  padding:0 16px;
+  border-radius:10px;
+  transition:transform .15s ease, opacity .15s ease, background .15s ease;
+}
+.tb-btn:hover{ transform:translateY(-1px); }
+.tb-btn:active{ transform:translateY(0); }
+.tb-btn:disabled{
+  cursor:wait;
+  transform:none;
+  opacity:.85;
+}
+.tb-primary{
+  background:var(--navy);
+  color:#fff;
+}
+.tb-secondary{
+  background:#fff;
+  color:var(--navy);
+  border:1px solid var(--card-border);
+}
+.tb-ghost{
+  background:transparent;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.28);
+  min-width:0;
+}
+.tb-spinner{
+  width:16px;
+  height:16px;
+  border:2px solid rgba(255,255,255,.28);
+  border-top-color:#fff;
+  border-radius:50%;
+  display:none;
+  animation:tb-spin .7s linear infinite;
+}
+.tb-secondary .tb-spinner{
+  border-color:rgba(23,27,46,.18);
+  border-top-color:var(--navy);
+}
+.tb-btn.is-loading .tb-spinner{ display:inline-block; }
+.tb-btn.is-loading .tb-icon{ display:none; }
+@keyframes tb-spin{
+  to{ transform:rotate(360deg); }
+}
+
+body.exporting .page{ box-shadow:none !important; }
+body.exporting .doc-toolbar{ pointer-events:none; }
+
+/* ---------------- PDF PREVIEW ---------------- */
+.pdf-preview{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:#323639;
+  display:none;
+  flex-direction:column;
+}
+.pdf-preview.is-open{ display:flex; }
+.pdf-preview-bar{
+  flex:0 0 56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  background:#1f2326;
+  color:#fff;
+}
+.pdf-preview-title{ font-size:14px; font-weight:700; }
+.pdf-preview iframe{
+  flex:1;
+  width:100%;
+  border:0;
+  background:#525659;
+}
+body.preview-open{ overflow:hidden; }

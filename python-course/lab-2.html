@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 02 — Python Course</title>
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-pdf-name="Python-Course-Lab-02.pdf">
+
+<div class="page page-cover">
+  <div class="cover-bracket-row">
+    <span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span>
+  </div>
+
+  <div class="cover-brand">Python Course</div>
+
+  <div class="cover-hero">
+    <img class="cover-logo" src="../mahdi-shamas/assets/images/logo.png" alt="Etkan">
+  </div>
+
+  <div class="cover-textblock">
+    <div class="cover-eyebrow">Laboratory sheet</div>
+    <div class="cover-title">Lab 02</div>
+    <div class="cover-rule"></div>
+    <div class="cover-desc">Conditions and decisions in Python: quadratic roots, BMI, calendar, grades, comparisons, and a photocopy price scale.</div>
+  </div>
+
+  <div class="cover-meta">
+    <div><b>Prepared by:</b> Etkan Engineering Teams</div>
+    <div><b>Course:</b> Python · Lab 02 of 02</div>
+    <div><b>Date:</b> August 2026</div>
+  </div>
+
+  <div class="cover-footer">
+    <span>Python Course</span>
+    <span>Lab 02</span>
+    <span>01</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">Lab 02 · Exercise 01</p>
+    <h1 class="sec-title">Exercise 01</h1>
+
+    <div class="ex-card" style="margin-bottom:4mm">
+      <div class="ex-head">
+        <span class="ex-num">01</span>
+        <span class="ex-title">Solve ax² + bx + c = 0</span>
+      </div>
+      <p>Write a program that solves a polynomial of the second degree <strong>ax² + bx + c = 0</strong>. a, b and c are entered through the keyboard. Use <strong>sqrt(x)</strong> from the <strong>math</strong> library.</p>
+      <p class="hint">from math import sqrt</p>
+    </div>
+
+    <p><strong>If a ≠ 0</strong>, the roots are calculated from the discriminant:</p>
+    <div class="formula">
+      <span>Discriminant</span>
+      Δ = b² − 4ac
+    </div>
+
+    <div class="case-list">
+      <div class="case-card">
+        <div class="case-if">If Δ &gt; 0 — two real roots</div>
+        <div class="formula">x₁ = (−b + √Δ) / (2a)</div>
+        <div class="formula">x₂ = (−b − √Δ) / (2a)</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-if">If Δ = 0 — one repeated root</div>
+        <div class="formula">x = −b / (2a)</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-if">If Δ &lt; 0 — two complex roots</div>
+        <p>i is the imaginary unit. Do not store the complex roots in variables — only display them.</p>
+        <div class="formula">x₁ = −b / (2a) + i · √(−Δ) / (2a)</div>
+        <div class="formula">x₂ = −b / (2a) − i · √(−Δ) / (2a)</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>Lab 02 · Exercise 01</span>
+    <span>02</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">Lab 02 · Exercise 01 continued</p>
+    <h1 class="sec-title">Exercise 01 <span style="font-weight:600;color:var(--gray)">· continued</span></h1>
+    <p>The equation is no longer quadratic. Treat it as a first-degree equation <strong>bx + c = 0</strong>.</p>
+
+    <div class="case-list">
+      <div class="case-card">
+        <div class="case-if">If a = 0 and b ≠ 0 — one real solution</div>
+        <div class="formula">x = −c / b</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-if">If a = 0, b = 0 and c ≠ 0</div>
+        <p>No solutions exist.</p>
+      </div>
+
+      <div class="case-card">
+        <div class="case-if">If a = 0, b = 0 and c = 0</div>
+        <p>Any value of x is a valid solution.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:5mm">The program must test these cases in order: first whether a is zero, then the sign of Δ when a is not zero.</div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>Lab 02 · Exercise 01</span>
+    <span>03</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">Lab 02 · Exercises 02–03</p>
+    <h1 class="sec-title">Exercises 02 – 03</h1>
+
+    <div class="ex-list">
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">02</span>
+          <span class="ex-title">Body mass index</span>
+        </div>
+        <p>Write a program that calculates the BMI of a person. Weight is in kg and height is in m.</p>
+        <div class="formula">
+          <span>Formula</span>
+          BMI = weight / height²
+        </div>
+        <div class="case-list">
+          <div class="case-card">
+            <div class="case-if">If BMI &lt; 18</div>
+            <p>Display <strong>under weight</strong>.</p>
+          </div>
+          <div class="case-card">
+            <div class="case-if">If 18 ≤ BMI ≤ 25</div>
+            <p>Display <strong>normal</strong>.</p>
+          </div>
+          <div class="case-card">
+            <div class="case-if">If 25 &lt; BMI ≤ 30</div>
+            <p>Display <strong>over weight</strong>.</p>
+          </div>
+          <div class="case-card">
+            <div class="case-if">If BMI &gt; 30</div>
+            <p>Display <strong>obese</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">03</span>
+          <span class="ex-title">Days in a month</span>
+        </div>
+        <p>Write a program that gives the number of days of a given month. The month and the year are entered through the keyboard.</p>
+        <p class="hint">February has 29 days in a leap year and 28 days otherwise. A leap year is divisible by 4, except century years, which must be divisible by 400.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>Lab 02 · Exercises 02–03</span>
+    <span>04</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">Lab 02 · Exercises 04–05</p>
+    <h1 class="sec-title">Exercises 04 – 05</h1>
+
+    <div class="ex-list">
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">04</span>
+          <span class="ex-title">Student grade</span>
+        </div>
+        <p>Write a program that determines the grade of a student from the note entered through the keyboard.</p>
+        <div class="case-list">
+          <div class="case-card">
+            <div class="case-if">If 10 ≤ note &lt; 14</div>
+            <p>Display <strong>A.B.</strong></p>
+          </div>
+          <div class="case-card">
+            <div class="case-if">If 14 ≤ note &lt; 16</div>
+            <p>Display <strong>Bien</strong>.</p>
+          </div>
+          <div class="case-card">
+            <div class="case-if">If 16 ≤ note &lt; 18</div>
+            <p>Display <strong>T.B</strong>.</p>
+          </div>
+          <div class="case-card">
+            <div class="case-if">If note ≥ 18</div>
+            <p>Display <strong>Excellent</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">05</span>
+          <span class="ex-title">Three numbers — equal or different</span>
+        </div>
+        <p>Read 3 numbers and say if they are all different, or only two of them are equal, or all of them are equal.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>Lab 02 · Exercises 04–05</span>
+    <span>05</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">Lab 02 · Exercises 06–07</p>
+    <h1 class="sec-title">Exercises 06 – 07</h1>
+
+    <div class="ex-list">
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">06</span>
+          <span class="ex-title">Largest of three — ternary operator</span>
+        </div>
+        <p>Read 3 different numbers and assign the largest value to a fourth variable <strong>Max</strong>. Use the ternary (conditional) expression.</p>
+        <div class="formula">
+          <span>Python form</span>
+          variable = value1 if condition else value2
+        </div>
+        <div class="formula">
+          <span>Example</span>
+          min = a if a &lt; b else b
+        </div>
+        <p class="hint">Nest it to compare three numbers, for example: Max = a if a &gt; b else b, then compare Max with the third number.</p>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">07</span>
+          <span class="ex-title">The number in the middle</span>
+        </div>
+        <p>Read 3 different numbers and find the one that is between the other two.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>Lab 02 · Exercises 06–07</span>
+    <span>06</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">Lab 02 · Exercise 08</p>
+    <h1 class="sec-title">Exercise 08</h1>
+
+    <div class="ex-card">
+      <div class="ex-head">
+        <span class="ex-num">08</span>
+        <span class="ex-title">Price of photocopies</span>
+      </div>
+      <p>Calculate the price of a certain number of photocopies by applying the following scale. Save the invariable numbers in <strong>constants</strong>.</p>
+      <div class="case-list">
+        <div class="case-card">
+          <div class="case-if">First 10 copies</div>
+          <p><strong>1000 LL</strong> / piece</p>
+        </div>
+        <div class="case-card">
+          <div class="case-if">Next 20 copies</div>
+          <p><strong>500 LL</strong> / piece</p>
+        </div>
+        <div class="case-card">
+          <div class="case-if">All the others</div>
+          <p><strong>250 LL</strong> / piece</p>
+        </div>
+      </div>
+      <p class="hint">Example: 35 copies → 10 × 1000 + 20 × 500 + 5 × 250.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>Lab 02 · Exercise 08</span>
+    <span>07</span>
+  </div>
+</div>
+
+<div class="doc-toolbar" id="doc-toolbar">
+  <button type="button" class="tb-btn tb-primary" id="btn-export">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>
+    </svg>
+    <span class="tb-text">Export PDF</span>
+  </button>
+  <button type="button" class="tb-btn tb-secondary" id="btn-preview">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+    <span class="tb-text">Preview PDF</span>
+  </button>
+</div>
+
+<div class="pdf-preview" id="pdf-preview" hidden>
+  <div class="pdf-preview-bar">
+    <span class="pdf-preview-title">PDF Preview</span>
+    <button type="button" class="tb-btn tb-ghost" id="btn-close-preview">Close</button>
+  </div>
+  <iframe id="pdf-frame" title="PDF Preview"></iframe>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../shared/export.js"></script>
+</body>
+</html>

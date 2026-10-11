@@ -1,0 +1,400 @@
+:root{
+  --navy:#171B2E;
+  --light:#EDF2F5;
+  --gray:#4B5261;
+  --gray-light:#8A93A2;
+  --rule:#3A4159;
+  --card-bg:#FFFFFF;
+  --card-border:#D6DBE3;
+}
+
+html,body{
+  margin:0; padding:0;
+  font-family:'Tajawal',sans-serif;
+  color:var(--navy);
+  background:#9aa3af;
+  direction:rtl;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+@media screen{
+  body{ padding:16mm 0 36mm; }
+  .page{
+    margin:0 auto 12mm;
+    box-shadow:0 4px 28px rgba(23,27,46,.28);
+  }
+  .page:last-child{ margin-bottom:0; }
+}
+
+@media print{
+  html,body{ background:#fff; }
+  body{ padding:0; }
+  .page{
+    margin:0;
+    box-shadow:none;
+    break-after:page;
+    page-break-after:always;
+  }
+  .page:last-child{
+    break-after:auto;
+    page-break-after:auto;
+  }
+  .doc-toolbar,
+  .pdf-preview{ display:none !important; }
+}
+.cover-logo{
+  display:flex;
+  justify-content:center;
+  margin-top:6mm;
+}
+.cover-logo img{ height:27mm; }
+
+.cover-textblock{
+  position:absolute;
+  right:16mm; left:16mm;
+  bottom:58mm;
+}
+.cover-eyebrow{
+  font-size:12.5pt;
+  font-weight:700;
+  letter-spacing:3px;
+  color:#AEB6C9;
+  margin-bottom:6mm;
+}
+.cover-title{
+  font-size:35pt;
+  font-weight:800;
+  line-height:1.3;
+  color:#fff;
+  margin:0 0 6mm 0;
+}
+.cover-rule{
+  width:26mm; height:1.4mm;
+  background:#fff;
+  margin:6mm 0 8mm 0;
+}
+.cover-desc{
+  font-size:12.5pt;
+  font-weight:400;
+  line-height:1.9;
+  color:#C4CAD8;
+  max-width:150mm;
+}
+
+.cover-meta{
+  position:absolute;
+  right:16mm; left:16mm;
+  bottom:26mm;
+  border-top:0.5px solid var(--rule);
+  padding-top:7mm;
+  font-size:12pt;
+  color:#C4CAD8;
+  line-height:2.2;
+}
+
+.cover-footer{
+  position:absolute;
+  right:16mm; left:16mm;
+  bottom:10mm;
+  border-top:0.5px solid var(--rule);
+  padding-top:4mm;
+  display:flex;
+  justify-content:space-between;
+  font-size:9pt;
+  font-weight:700;
+  letter-spacing:0.5px;
+  color:#8A93A2;
+}
+
+/* ---------------- CONTENT SECTIONS ---------------- */
+.section{
+  padding-top:0;
+  margin-bottom:8mm;
+}
+.page-body > .section:last-child{
+  margin-bottom:0;
+}
+.section > p{
+  margin-bottom:3.5mm;
+}
+.section > p:last-of-type{
+  margin-bottom:0;
+}
+
+.sec-head{
+  page-break-inside:avoid;
+}
+.eyebrow-row{
+  display:flex;
+  align-items:center;
+  gap:4mm;
+  margin-bottom:3mm;
+}
+.eyebrow-num{
+  font-size:10pt;
+  font-weight:800;
+  letter-spacing:2px;
+  color:var(--navy);
+  white-space:nowrap;
+}
+.eyebrow-rule{
+  flex:1;
+  height:0.6px;
+  background:#C7CDD8;
+}
+
+h1.sec-title{
+  font-size:18pt;
+  font-weight:800;
+  line-height:1.3;
+  margin:0 0 4mm 0;
+  color:var(--navy);
+  break-after:auto !important;
+  page-break-after:auto !important;
+}
+
+h2.sub-title{
+  font-size:16pt;
+  font-weight:800;
+  color:var(--navy);
+  margin:0 0 4mm 0;
+}
+
+p{
+  font-size:11.5pt;
+  line-height:1.75;
+  color:var(--gray);
+  margin:0 0 3mm 0;
+  font-weight:400;
+}
+p:last-child{ margin-bottom:0; }
+p strong, li strong{ color:var(--navy); font-weight:700; }
+
+/* cards only for discrete, scannable blocks */
+.card-heading{
+  font-size:13pt;
+  font-weight:800;
+  color:var(--navy);
+  margin-bottom:2.5mm;
+}
+
+/* bullet list - circle & dash marker like source theme */
+ul.dot-list{
+  list-style:none;
+  margin:1mm 0 5mm 0; padding:0;
+}
+ul.dot-list li{
+  position:relative;
+  padding-right:8mm;
+  margin-bottom:2.2mm;
+  font-size:11.5pt;
+  line-height:1.65;
+  color:var(--gray);
+}
+ul.dot-list li:last-child{ margin-bottom:0; }
+ul.dot-list li::before{
+  content:"";
+  position:absolute;
+  right:0; top:5.6pt;
+  width:3mm; height:3mm;
+  border:1.4px solid var(--navy);
+  border-radius:50%;
+}
+ul.dot-list li::after{
+  content:"";
+  position:absolute;
+  right:3mm; top:7.1pt;
+  width:3.6mm; height:1.4px;
+  background:var(--navy);
+}
+
+/* numbered list matching source style */
+ol.num-list{
+  margin:2mm 0 0 0; padding:0;
+  list-style:none;
+  counter-reset:num;
+}
+ol.num-list li{
+  counter-increment:num;
+  position:relative;
+  padding-right:8mm;
+  margin-bottom:2.2mm;
+  font-size:11.5pt;
+  line-height:1.65;
+  color:var(--gray);
+}
+ol.num-list li:last-child{ margin-bottom:0; }
+ol.num-list li::before{
+  content:counter(num) ".";
+  position:absolute;
+  right:0; top:0;
+  font-weight:800;
+  color:var(--navy);
+  font-size:11.5pt;
+  direction:ltr;
+}
+
+.lead-line{
+  font-size:11.5pt;
+  font-weight:700;
+  color:var(--navy);
+  margin:4mm 0 2mm 0;
+}
+
+/* dark highlight / stat card */
+.dark-card{
+  background:var(--navy);
+  border-radius:2.5mm;
+  padding:5mm 6mm;
+  margin:2mm 0 5mm 0;
+  page-break-inside:avoid;
+}
+.dark-card .card-label{
+  color:#AEB6C9;
+  font-size:9pt;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:2mm;
+}
+.dark-card .card-value{
+  color:#fff;
+  font-size:14.5pt;
+  font-weight:800;
+  line-height:1.4;
+}
+
+.quote-card{
+  background:#F4F7F9;
+  border-right:3px solid var(--navy);
+  border-radius:1.8mm;
+  padding:3.5mm 5mm;
+  margin:3mm 0 4mm 0;
+  font-size:11.5pt;
+  font-weight:700;
+  color:var(--navy);
+  line-height:1.65;
+}
+
+.two-col{
+  display:flex;
+  gap:4mm;
+  margin:3mm 0 5mm 0;
+}
+.two-col > div{ flex:1; }
+.two-col .quote-card{ margin-top:0; height:100%; }
+
+.role-grid{
+  display:flex;
+  flex-direction:column;
+  gap:3.5mm;
+  margin:4mm 0 2mm 0;
+}
+.role-card{
+  border:0.8px solid var(--card-border);
+  background:var(--card-bg);
+  border-radius:2.5mm;
+  padding:5mm 6mm;
+}
+.role-card .quote-card{
+  margin-bottom:0;
+}
+
+.fact-row{
+  display:flex;
+  gap:4mm;
+  margin:4mm 0 4mm 0;
+}
+.fact-card{
+  flex:1;
+  background:var(--card-bg);
+  border:0.8px solid var(--card-border);
+  border-radius:2.5mm;
+  padding:4mm 5mm;
+  page-break-inside:avoid;
+}
+.fact-label{
+  font-size:9pt;
+  font-weight:700;
+  letter-spacing:0.8px;
+  color:var(--gray-light);
+  margin-bottom:1.5mm;
+}
+.fact-value{
+  font-size:13pt;
+  font-weight:800;
+  color:var(--navy);
+  line-height:1.4;
+}
+.role-card .role-title{
+  font-size:13pt;
+  font-weight:800;
+  color:var(--navy);
+  margin-bottom:1.5mm;
+}
+.role-card .role-lead{
+  font-size:11.5pt;
+  color:var(--gray);
+  margin-bottom:0.5mm;
+}
+
+/* closing CTA band */
+.cta-band{
+  background:var(--navy);
+  border-radius:2.5mm;
+  padding:6mm 7mm;
+  margin-top:4mm;
+  page-break-inside:avoid;
+}
+.cta-bracket-row{
+  display:flex;
+  gap:5mm;
+  color:#4A5170;
+  font-size:9.5pt;
+  font-weight:700;
+  font-family:'Courier New',monospace;
+  direction:ltr;
+  margin-bottom:3mm;
+}
+.cta-logo{ height:9mm; margin-bottom:4mm; }
+.cta-text{
+  color:#fff;
+  font-size:12pt;
+  font-weight:700;
+  line-height:1.6;
+  margin-bottom:3mm;
+}
+.cta-org{
+  color:#AEB6C9;
+  font-size:9pt;
+  font-weight:700;
+  border-top:0.5px solid var(--rule);
+  padding-top:2.5mm;
+}
+
+/* signature block */
+.sig-block{
+  margin-top:5mm;
+  border:0.8px solid var(--card-border);
+  background:var(--card-bg);
+  border-radius:2.5mm;
+  padding:5mm 6mm;
+  page-break-inside:avoid;
+}
+.sig-title{
+  font-size:13pt;
+  font-weight:800;
+  color:var(--navy);
+  margin-bottom:3.5mm;
+}
+.sig-row{
+  font-size:11.5pt;
+  color:var(--gray);
+  margin-bottom:3.5mm;
+  display:flex;
+  gap:2mm;
+  align-items:flex-end;
+}
+.sig-row:last-child{ margin-bottom:0; }
+.sig-row .lbl{ font-weight:700; color:var(--navy); white-space:nowrap; }
+.sig-dots{ flex:1; border-bottom:0.8px dotted #9AA2B1; margin-bottom:1mm; }

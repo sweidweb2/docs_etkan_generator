@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 03 — Correction Checklist</title>
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-pdf-name="Python-Course-Lab-03-Checklist.pdf">
+
+<div class="page page-cover">
+  <div class="cover-bracket-row">
+    <span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span>
+  </div>
+
+  <div class="cover-brand">Python Course</div>
+
+  <div class="cover-hero">
+    <img class="cover-logo" src="../mahdi-shamas/assets/images/logo.png" alt="Etkan">
+  </div>
+
+  <div class="cover-textblock">
+    <div class="cover-eyebrow">Instructor sheet</div>
+    <div class="cover-title">Lab 03 Checklist</div>
+    <div class="cover-rule"></div>
+    <div class="cover-desc">Correction checklist for the Student Study Tracker — tick each item after you run the student’s program.</div>
+  </div>
+
+  <div class="cover-meta">
+    <div><b>Prepared by:</b> Etkan Engineering Teams</div>
+    <div><b>Course:</b> Python · Lab 03 correction</div>
+    <div><b>Date:</b> August 2026</div>
+  </div>
+
+  <div class="cover-footer">
+    <span>Python Course</span>
+    <span>Lab 03 Checklist</span>
+    <span>01</span>
+  </div>
+</div>
+
+<div id="pack-source" hidden aria-hidden="true">
+
+  <div class="content-block" data-label="How to grade">
+    <p class="page-kicker">Lab 03 · Instructor</p>
+    <h1 class="sec-title">How to use this checklist</h1>
+    <div class="note">The student should build <strong>one growing app</strong>, not separate files per exercise. Run their final program and trace each feature. Tick a box only when the requirement works in practice.</div>
+    <ul class="check-list">
+      <li><strong>Run the program</strong> — start from their main file and use the menu (or early-step version if they are mid-lab).</li>
+      <li><strong>Test edge cases</strong> — spaces in name, mixed-case search, invalid menu input where relevant.</li>
+      <li><strong>Read the code</strong> — confirm the right concept is used (loop, strip, except, recursion), not only the printed output.</li>
+      <li><strong>One app</strong> — later steps should still use the name / subjects / tasks from earlier steps.</li>
+    </ul>
+    <p class="sub-label block-label">Quick scoring (optional)</p>
+    <div class="check-score">
+      <div class="mini-card"><h4>Exercises 01–08</h4><p>/ 8</p></div>
+      <div class="mini-card"><h4>Exercises 09–14</h4><p>/ 6</p></div>
+      <div class="mini-card"><h4>Final menu</h4><p>/ 1</p></div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercises 01–02">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Phases 1–2 · Hello &amp; subjects</h2>
+
+    <div class="check-card">
+      <div class="ex-head">
+        <span class="ex-num">01</span>
+        <span class="ex-title">Name welcome &amp; clean input</span>
+      </div>
+      <ul class="check-list">
+        <li>Program asks for the student name with <code>input()</code></li>
+        <li>Prints a welcome like <code>Welcome, Ali!</code> using the cleaned name</li>
+        <li>Prints the same name in <strong>uppercase</strong> and <strong>lowercase</strong></li>
+        <li>Uses <code>strip()</code> — typing <code>&nbsp;&nbsp;Ali&nbsp;&nbsp;</code> still shows <code>Ali</code> (not spaces)</li>
+        <li>Name is stored in a variable reused later (profile, ID, ASCII)</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Enter <code>&nbsp;&nbsp;Sara&nbsp;&nbsp;</code> → welcome shows <code>Sara</code>, not padded spaces.</div>
+    </div>
+
+    <div class="check-card" style="margin-top:3mm">
+      <div class="ex-head">
+        <span class="ex-num">02</span>
+        <span class="ex-title">Collect and list subjects</span>
+      </div>
+      <ul class="check-list">
+        <li>Asks how many subjects to add</li>
+        <li>Uses a <strong>loop</strong> to read each subject name</li>
+        <li>Stores subjects in a <strong>list</strong></li>
+        <li>Prints numbered list: <code>1. Python</code>, <code>2. Math</code>, …</li>
+        <li>Counter / <code>range</code> used correctly (not hard-coded for one count only)</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Enter 3 subjects → output shows <code>1.</code> <code>2.</code> <code>3.</code> with correct names.</div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercises 03–04">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Phases 3–4 · Menu &amp; search</h2>
+
+    <div class="check-card">
+      <div class="ex-head">
+        <span class="ex-num">03</span>
+        <span class="ex-title">Keep the program running</span>
+      </div>
+      <ul class="check-list">
+        <li>Menu shows at least: Add subject, Show subjects, Search subject, Exit</li>
+        <li>Reads user choice and runs the matching action</li>
+        <li>Program <strong>loops</strong> until Exit — does not stop after one action</li>
+        <li>Exit option actually ends the program</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Pick Show subjects twice, then Exit — menu reappears between actions.</div>
+    </div>
+
+    <div class="check-card" style="margin-top:3mm">
+      <div class="ex-head">
+        <span class="ex-num">04</span>
+        <span class="ex-title">Search subject (any case)</span>
+      </div>
+      <ul class="check-list">
+        <li>Asks which subject to search for</li>
+        <li>Finds subject when typed as <code>python</code>, <code>PYTHON</code>, or <code>PyThOn</code> if list has <code>Python</code></li>
+        <li>Prints <code>Subject found!</code> (or equivalent) when match exists</li>
+        <li>Prints not-found message when subject is missing</li>
+        <li>Uses case-insensitive compare (<code>lower</code>, <code>in</code>, or <code>find</code>)</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Add <code>Python</code>, search <code>python</code> → found. Search <code>Chemistry</code> → not found.</div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercises 05–06">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Phases 5–6 · Text &amp; profile</h2>
+
+    <div class="check-card">
+      <div class="ex-head">
+        <span class="ex-num">05</span>
+        <span class="ex-title">Split many subjects · Join a sentence</span>
+      </div>
+      <ul class="check-list">
+        <li>Accepts one comma-separated line (e.g. <code>Python, Math, Physics, English</code>)</li>
+        <li>Uses <code>split()</code> to build a list of subjects</li>
+        <li>Displays subjects from that list</li>
+        <li>Uses <code>join</code> (or equivalent) for a readable sentence with <strong>and</strong> before the last item</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Input <code>Python, Math, Physics</code> → sentence like <code>You are studying Python, Math and Physics.</code></div>
+    </div>
+
+    <div class="check-card" style="margin-top:3mm">
+      <div class="ex-head">
+        <span class="ex-num">06</span>
+        <span class="ex-title">Student profile — inspect the name</span>
+      </div>
+      <ul class="check-list">
+        <li>Stores / shows profile: <strong>name</strong> and <strong>grade</strong></li>
+        <li>Prints <strong>first letter</strong> of name (after strip)</li>
+        <li>Prints <strong>last letter</strong> of name</li>
+        <li>Prints correct <strong>length</strong> (spaces count if still in string)</li>
+        <li>Uses indexing or slicing on the name string</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Name <code>Ali Sweid</code>, grade <code>11</code> → first <code>A</code>, last <code>d</code>, length <code>9</code>.</div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercises 07–08">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Phases 7–8 · Details &amp; tasks</h2>
+
+    <div class="check-card">
+      <div class="ex-head">
+        <span class="ex-num">07</span>
+        <span class="ex-title">Description + search inside text</span>
+      </div>
+      <ul class="check-list">
+        <li>Each subject has a <strong>description</strong> stored with it</li>
+        <li>User can enter a search word</li>
+        <li>Search inside description is <strong>case-insensitive</strong></li>
+        <li>Prints <code>Found!</code> or clear not-found message</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Description <code>Programming language</code>, search <code>programming</code> → Found!</div>
+    </div>
+
+    <div class="check-card" style="margin-top:3mm">
+      <div class="ex-head">
+        <span class="ex-num">08</span>
+        <span class="ex-title">Subjects with study tasks</span>
+      </div>
+      <ul class="check-list">
+        <li>Each subject has its own <strong>list of tasks</strong></li>
+        <li>Prints subject name, then numbered tasks under it (indented or clear grouping)</li>
+        <li>Uses <strong>nested loops</strong> (outer: subjects, inner: tasks)</li>
+        <li>Task numbering resets per subject (1, 2, 3 under each subject)</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Two subjects with different task counts → each block shows its own <code>1. 2. 3.</code> list.</div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercises 09–10">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Phases 9–10 · Progress &amp; ID</h2>
+
+    <div class="check-card">
+      <div class="ex-head">
+        <span class="ex-num">09</span>
+        <span class="ex-title">Progress tracker</span>
+      </div>
+      <ul class="check-list">
+        <li>Asks total tasks and completed tasks</li>
+        <li>Prints <strong>total</strong>, <strong>completed</strong>, and <strong>remaining</strong> correctly (<code>remaining = total - completed</code>)</li>
+        <li>Counts down remaining: 4, 3, 2, 1 (descending loop)</li>
+        <li>Optional: progress bar or percentage display</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Total 10, completed 6 → remaining 4, then countdown <code>4 3 2 1</code>.</div>
+    </div>
+
+    <div class="check-card" style="margin-top:3mm">
+      <div class="ex-head">
+        <span class="ex-num">10</span>
+        <span class="ex-title">Generate student ID</span>
+      </div>
+      <ul class="check-list">
+        <li>Builds ID from full name (e.g. <code>Ali Sweid</code> → <code>ALI-SWE</code> or similar rule)</li>
+        <li>Uses string tools: indexing, slicing, <code>upper</code>/<code>lower</code>, <code>replace</code></li>
+        <li>Prints the generated ID</li>
+        <li>ID is derived from the same student name used elsewhere</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Name <code>Ali Sweid</code> → ID matches student’s stated rule (e.g. <code>ALI-SWE</code>).</div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercises 11–12">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Phases 11–12 · ASCII &amp; errors</h2>
+
+    <div class="check-card">
+      <div class="ex-head">
+        <span class="ex-num">11</span>
+        <span class="ex-title">ASCII student code</span>
+      </div>
+      <ul class="check-list">
+        <li>Loops through each character in the student name</li>
+        <li>Prints each character and its <strong>ASCII</strong> value (e.g. <code>A = 65</code>)</li>
+        <li>Combines values into a simple code (student’s design — check it is consistent)</li>
+        <li>Uses <code>for character in name</code> (or equivalent iteration)</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Name <code>Ali</code> → shows A=65, l=108, i=105 (or ord() values).</div>
+    </div>
+
+    <div class="check-card" style="margin-top:3mm">
+      <div class="ex-head">
+        <span class="ex-num">12</span>
+        <span class="ex-title">Break it on purpose (errors)</span>
+      </div>
+      <ul class="check-list">
+        <li><strong>Syntax:</strong> Can show error with missing <code>:</code> after <code>if</code> and read traceback</li>
+        <li><strong>Runtime:</strong> <code>int(input())</code> + text <code>hello</code> raises <code>ValueError</code>; student uses <code>try/except</code> to handle it</li>
+        <li><strong>Index:</strong> Can demonstrate <code>IndexError</code> (e.g. <code>name[10]</code> on short string) and explain why</li>
+        <li>Student can name the three error types (syntax, runtime, index/logical distinction later)</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Ask student to demo each error live or show saved broken/fix versions in code.</div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercises 13–14">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Phases 13–14 · Logic &amp; recursion</h2>
+
+    <div class="check-card">
+      <div class="ex-head">
+        <span class="ex-num">13</span>
+        <span class="ex-title">Logical error (wrong answer)</span>
+      </div>
+      <ul class="check-list">
+        <li>Student demonstrated wrong formula (e.g. <code>remaining = total - completed + 1</code>)</li>
+        <li>Program runs without crashing but remaining count is wrong</li>
+        <li>Student explains this is a <strong>logical error</strong> (not syntax / not runtime)</li>
+        <li>Student can fix formula to <code>total - completed</code></li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Total 10, completed 6 → wrong formula gives 5 remaining; correct gives 4.</div>
+    </div>
+
+    <div class="check-card" style="margin-top:3mm">
+      <div class="ex-head">
+        <span class="ex-num">14</span>
+        <span class="ex-title">Study countdown · recursion</span>
+      </div>
+      <ul class="check-list">
+        <li>Countdown prints <code>5 4 3 2 1</code> then <code>Study time!</code></li>
+        <li><strong>Version 1:</strong> implemented with a loop</li>
+        <li><strong>Version 2:</strong> same output using a function that <strong>calls itself</strong> (recursion)</li>
+        <li>Recursion has a clear base case (stops at 1 or 0)</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Run countdown from menu → exact sequence ending with <code>Study time!</code></div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Final menu">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Exercise 15 · Full Study Tracker</h2>
+
+    <div class="check-card">
+      <div class="ex-head">
+        <span class="ex-num">15</span>
+        <span class="ex-title">Full menu integration</span>
+      </div>
+      <ul class="check-list">
+        <li>Welcome shows cleaned student name (uppercase in banner is OK)</li>
+        <li><strong>1</strong> Add subject — adds to list</li>
+        <li><strong>2</strong> Show subjects — numbered list</li>
+        <li><strong>3</strong> Search subjects — case-insensitive</li>
+        <li><strong>4</strong> Add tasks — tasks linked to subjects</li>
+        <li><strong>5</strong> Show tasks — nested subject → task display</li>
+        <li><strong>6</strong> Track progress — totals + countdown (correct math)</li>
+        <li><strong>7</strong> Student profile — name, grade, first/last letter, length</li>
+        <li><strong>8</strong> Generate student ID — from stored name</li>
+        <li><strong>9</strong> Start study countdown — loop or recursion version</li>
+        <li><strong>0</strong> Exit — program ends cleanly</li>
+        <li>All features live in <strong>one program</strong> (one main flow / menu)</li>
+      </ul>
+      <div class="check-test"><strong>Quick test:</strong> Run through every menu option once, then Exit. No crash; data from earlier steps still used.</div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Concepts">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Concepts — spot check in code</h2>
+    <p>If output looks right but code is wrong, untick the exercise. Scan the student file for:</p>
+    <table class="topic-map">
+      <thead>
+        <tr><th>Concept</th><th>Should appear in</th><th>Look for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>strip / upper / lower</td><td>Steps 01, 04, 06</td><td><code>.strip()</code> <code>.upper()</code> <code>.lower()</code></td></tr>
+        <tr><td>range + loop</td><td>Steps 02, 03, 09, 14</td><td><code>for</code> with <code>range</code></td></tr>
+        <tr><td>split / join</td><td>Step 05</td><td><code>.split(",")</code> <code>".join(...)"</code></td></tr>
+        <tr><td>indexing / slicing / len</td><td>Steps 06, 10</td><td><code>[0]</code> <code>[-1]</code> <code>len()</code></td></tr>
+        <tr><td>nested loops</td><td>Step 08</td><td>loop inside loop for subjects + tasks</td></tr>
+        <tr><td>try / except</td><td>Step 12</td><td><code>except ValueError</code> (or similar)</td></tr>
+        <tr><td>recursion</td><td>Step 14</td><td>function calls itself with base case</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block" data-label="Summary">
+    <h2 class="sec-subtitle" style="font-size:14pt;margin-bottom:3mm">Grading summary</h2>
+    <div class="check-score">
+      <div class="mini-card"><h4>Student name</h4><p style="font-weight:500;color:var(--gray)">________________</p></div>
+      <div class="mini-card"><h4>Date</h4><p style="font-weight:500;color:var(--gray)">________________</p></div>
+      <div class="mini-card"><h4>Score / notes</h4><p style="font-weight:500;color:var(--gray)">________________</p></div>
+    </div>
+    <div class="note" style="margin-top:4mm;margin-bottom:0"><strong>Pass hint:</strong> Final menu works + at least 10/15 exercise areas ticked with correct concepts in code. <strong>Incomplete:</strong> separate mini-scripts per step with no unified app. <strong>Redo:</strong> wrong remaining formula still in final app, search case-sensitive, or no error handling on menu numbers.</div>
+  </div>
+
+</div>
+
+<div id="pack-target"></div>
+
+<div class="doc-toolbar" id="doc-toolbar">
+  <button type="button" class="tb-btn tb-primary" id="btn-export">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>
+    </svg>
+    <span class="tb-text">Export PDF</span>
+  </button>
+  <button type="button" class="tb-btn tb-secondary" id="btn-preview">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+    <span class="tb-text">Preview PDF</span>
+  </button>
+</div>
+
+<div class="pdf-preview" id="pdf-preview" hidden>
+  <div class="pdf-preview-bar">
+    <span class="pdf-preview-title">PDF Preview</span>
+    <button type="button" class="tb-btn tb-ghost" id="btn-close-preview">Close</button>
+  </div>
+  <iframe id="pdf-frame" title="PDF Preview"></iframe>
+</div>
+
+<script>
+  window.PROPOSAL = {
+    filename: "Python-Course-Lab-03-Checklist.pdf",
+    footerBrand: "Etkan Engineering Teams",
+    packReady: "__pythonLabChecklistReady"
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../shared/pack.js"></script>
+<script src="../shared/export.js"></script>
+</body>
+</html>

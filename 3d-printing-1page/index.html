@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ETKAN — Get Familiar with 3D Printers</title>
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page page-cover">
+  <div class="cover-bracket-row">
+    <span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span>
+  </div>
+
+  <div class="cover-brand">ETKAN</div>
+
+  <div class="cover-hero">
+    <img class="cover-logo" src="assets/images/logo.png" alt="ETKAN">
+  </div>
+
+  <div class="cover-textblock">
+    <div class="cover-eyebrow">Workshop Proposal</div>
+    <div class="cover-rule"></div>
+    <div class="cover-desc">Get Familiar with 3D Printers — how a digital model becomes a physical part</div>
+  </div>
+
+  <div class="cover-meta">
+    <div><b>Audience:</b> University engineering students, all majors</div>
+    <div><b>Duration:</b> 2 hours · groups of 4 · 15–20 participants</div>
+    <div><b>Presented by:</b> ETKAN</div>
+  </div>
+
+  <div class="cover-footer">
+    <span>ETKAN</span>
+    <span>Get Familiar with 3D Printers</span>
+    <span>01</span>
+  </div>
+</div>
+
+<div class="page page-one">
+  <div class="page-body one-body">
+
+    <div class="one-top">
+      <div class="one-brand">ETKAN</div>
+      <h1 class="one-title">Workshop Proposal:<br>Get Familiar with 3D Printers</h1>
+      <div class="one-presented">Presented by <strong>ETKAN</strong></div>
+    </div>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="meta-label">Audience</div>
+        <div class="meta-value">University engineering students, all majors</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Duration</div>
+        <div class="meta-value">2 hours</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Group size</div>
+        <div class="meta-value">15–20 participants, practice in groups of 4</div>
+      </div>
+    </div>
+
+    <section class="block">
+      <h2 class="sec-title">Purpose</h2>
+      <p>This workshop introduces engineering students to 3D printing and shows them how it fits into modern manufacturing. By the end, participants will understand how a 3D printer works, what materials it uses, and how a digital model becomes a physical part.</p>
+      <p>Participants leave able to prepare and start a real print, whatever their major.</p>
+    </section>
+
+    <section class="block">
+      <h2 class="sec-title">Agenda</h2>
+      <ol class="agenda-list">
+        <li>The future of manufacturing</li>
+        <li>Introduction to materials</li>
+        <li>The idea of controlling CNC machines</li>
+        <li>Main 3D printing parameters</li>
+        <li>Practice</li>
+      </ol>
+    </section>
+
+    <div class="note-band">
+      <div class="note-label">Note</div>
+      <div class="note-text">Please bring your laptop and install Bambu Studio before the workshop.</div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span>ETKAN</span>
+    <span>Get Familiar with 3D Printers</span>
+    <span>02</span>
+  </div>
+</div>
+
+<div class="doc-toolbar" id="doc-toolbar">
+  <button type="button" class="tb-btn tb-primary" id="btn-export">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>
+    </svg>
+    <span class="tb-text">Export PDF</span>
+  </button>
+  <button type="button" class="tb-btn tb-secondary" id="btn-preview">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+    <span class="tb-text">Preview PDF</span>
+  </button>
+</div>
+
+<div class="pdf-preview" id="pdf-preview" hidden>
+  <div class="pdf-preview-bar">
+    <span class="pdf-preview-title">PDF Preview</span>
+    <button type="button" class="tb-btn tb-ghost" id="btn-close-preview">Close</button>
+  </div>
+  <iframe id="pdf-frame" title="PDF Preview"></iframe>
+</div>
+
+<script>
+  window.PROPOSAL = {
+    filename: "ETKAN-Get-Familiar-with-3D-Printers.pdf",
+    coverBg: "#171B2E",
+    pageBg: "#EDF2F5"
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../shared/export.js"></script>
+</body>
+</html>

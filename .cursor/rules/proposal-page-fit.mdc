@@ -1,0 +1,61 @@
+---
+description: Keep proposal A4 content blocks whole — pack under each other, never split across pages
+globs: "**/index.html,**/style.css"
+alwaysApply: false
+---
+
+# Proposal page fit (A4 blocks)
+
+These are fixed A4 sheet proposals (`.page` = one printed page). Content is stacked as **whole blocks** (a section, table, card group, step list, CTA, etc.).
+
+## Packing rule
+
+1. Place blocks **under each other** in reading order.
+2. If the **entire block fits** in the remaining space on the current page → keep it on that page.
+3. If the block would be **cut or split** across pages → move the **whole block** to the next page. Never leave half a section on one page and half on the next.
+4. Pack **tight**: put as many whole blocks on a page as fit. Do not leave a page sparse just to isolate one short section, and do not force two blocks onto one page if either would overflow or clip (`overflow: hidden` on `.page`).
+
+## Do / don't
+
+```html
+<!-- ✅ GOOD: two whole sections on one page when both fit -->
+<div class="page">
+  <div class="page-body">
+    <div class="section">… Identity …</div>
+    <div class="section">… Services …</div>
+  </div>
+</div>
+
+<!-- ❌ BAD: one section clipped mid-list / mid-table across page edge -->
+<div class="page">… first half of Studio steps …</div>
+<div class="page">… remaining Studio steps …</div>
+```
+
+## When editing
+
+- In `etkan-culture`, keep each whole unit as a `.content-block` inside `#pack-source`. `shared/pack.js` stacks them under each other: keep on the current page if the whole block fits, otherwise start a new page. Do not hard-split one section across two `.page` sheets by hand.
+- Cover pages stay alone; do not pack content onto `page-cover`.
+- After changing blocks, reload and confirm pages are packed (not one short section per page) and nothing is clipped.
+
+## Shared assets
+
+Page chrome, fonts, toolbar and PDF export live in `shared/`. A new proposal links them and sets its own config; only content and proposal-specific rules go in the folder's own `style.css`.
+
+```html
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+...
+<script>
+  window.PROPOSAL = {
+    filename: "Deck-Name.pdf",
+    footerBrand: "ETKAN",
+    packReady: "__etkanPackReady",
+    coverBg: "#171B2E",
+    pageBg: "#EDF2F5"
+  };
+</script>
+<script src="../shared/pack.js"></script>
+<script src="../shared/export.js"></script>
+```
+
+Omit `pack.js`, `footerBrand` and `packReady` for decks whose `.page` sheets are laid out by hand. `telecel-proposal` keeps its own theme CSS and only uses `shared/export.js`.

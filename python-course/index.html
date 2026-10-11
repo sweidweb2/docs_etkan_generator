@@ -1,0 +1,492 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python Course — Labs</title>
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-pdf-name="Python-Course-Goals-and-Labs.pdf">
+
+<div class="page page-cover">
+  <div class="cover-bracket-row">
+    <span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span>
+  </div>
+
+  <div class="cover-brand">Python Course</div>
+
+  <div class="cover-hero">
+    <img class="cover-logo" src="../mahdi-shamas/assets/images/logo.png" alt="Etkan">
+  </div>
+
+  <div class="cover-textblock">
+    <div class="cover-eyebrow">Course goals &amp; labs</div>
+    <div class="cover-rule"></div>
+    <div class="cover-desc">What the student should know by topic — basics through classes, data structures, and problem-solving patterns — plus three laboratory sheets.</div>
+  </div>
+
+  <div class="cover-meta">
+    <div><b>Prepared by:</b> Etkan Engineering Teams</div>
+    <div><b>Labs:</b> Lab 01 · Lab 02 · Lab 03</div>
+    <div><b>Date:</b> August 2026</div>
+  </div>
+
+  <div class="cover-footer">
+    <span>Python Course</span>
+    <span>Goals &amp; labs</span>
+    <span>01</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">Python Course · Reference</p>
+    <h1 class="sec-title">Course goals &amp; labs</h1>
+    <p>By the end of this course the student should know the topics below. Labs 01–03 practise them in Python.</p>
+
+    <div class="toc">
+      <div class="toc-row"><span class="toc-n">01</span><span class="toc-t">Basics</span></div>
+      <div class="toc-row"><span class="toc-n">02</span><span class="toc-t">If condition</span></div>
+      <div class="toc-row"><span class="toc-n">03</span><span class="toc-t">Loops — while</span></div>
+      <div class="toc-row"><span class="toc-n">04</span><span class="toc-t">Loops — for</span></div>
+      <div class="toc-row"><span class="toc-n">05</span><span class="toc-t">Functions</span></div>
+      <div class="toc-row"><span class="toc-n">06</span><span class="toc-t">Arrays — lists</span></div>
+      <div class="toc-row"><span class="toc-n">07</span><span class="toc-t">Arrays — dictionary</span></div>
+      <div class="toc-row"><span class="toc-n">08</span><span class="toc-t">Class</span></div>
+      <div class="toc-row"><span class="toc-n">09</span><span class="toc-t">Strings</span></div>
+      <div class="toc-row"><span class="toc-n">10</span><span class="toc-t">Debugging &amp; exceptions</span></div>
+      <div class="toc-row"><span class="toc-n">11</span><span class="toc-t">Data structures</span></div>
+      <div class="toc-row"><span class="toc-n">12</span><span class="toc-t">Problem-solving patterns</span></div>
+    </div>
+
+    <div class="lab-grid labs-3">
+      <a class="lab-card" href="lab-1.html">
+        <div class="lab-num">Lab 01</div>
+        <h2>Basics</h2>
+        <p>Nine exercises: swap values, sum and average, age, circle, (A+B)², arithmetic progression, student grades, invoice, and a rectangle from two points.</p>
+        <div class="chip-row">
+          <span class="chip">variables</span>
+          <span class="chip">input</span>
+          <span class="chip">arithmetic</span>
+          <span class="chip">formulas</span>
+        </div>
+        <div class="lab-meta">Open Lab 01 →</div>
+      </a>
+      <a class="lab-card" href="lab-2.html">
+        <div class="lab-num">Lab 02</div>
+        <h2>Conditions</h2>
+        <p>Quadratic equation, BMI, days in a month, student grade, equalities, ternary max, the middle value, and photocopy prices.</p>
+        <div class="chip-row">
+          <span class="chip">if / elif / else</span>
+          <span class="chip">edge cases</span>
+          <span class="chip">nested decisions</span>
+        </div>
+        <div class="lab-meta">Open Lab 02 →</div>
+      </a>
+      <a class="lab-card" href="lab-3.html">
+        <div class="lab-num">Lab 03</div>
+        <h2>Study Tracker</h2>
+        <p>One growing console app: strings, loops, search, nested tasks, progress, errors, and recursion.</p>
+        <div class="chip-row">
+          <span class="chip">strings</span>
+          <span class="chip">loops</span>
+          <span class="chip">debugging</span>
+          <span class="chip">recursion</span>
+        </div>
+        <div class="lab-meta">Open Lab 03 →</div>
+      </a>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>Course goals &amp; labs</span>
+    <span>02</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">01–04 · Language</p>
+    <h1 class="sec-title">Basics, if, and loops</h1>
+
+    <div class="ex-list">
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">01</span>
+          <span class="ex-title">Basics</span>
+        </div>
+        <p>How a Python program stores values, reads input, runs from top to bottom, and talks to the console.</p>
+        <div class="chip-row">
+          <span class="chip">variables</span>
+          <span class="chip">input</span>
+          <span class="chip">data types</span>
+          <span class="chip">incrementing</span>
+          <span class="chip">camel case</span>
+          <span class="chip">arithmetic operations</span>
+          <span class="chip">equation &amp; expression</span>
+          <span class="chip">code runs top → down</span>
+          <span class="chip">console</span>
+          <span class="chip">modulus</span>
+          <span class="chip">math library</span>
+          <span class="chip">libraries</span>
+          <span class="chip">errors</span>
+          <span class="chip">swapping</span>
+          <span class="chip">printing</span>
+          <span class="chip">variable override</span>
+          <span class="chip">type conversion</span>
+          <span class="chip">comparison operators</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">02</span>
+          <span class="ex-title">If condition</span>
+        </div>
+        <p>How to branch a program: simple tests, combined tests, and nested decisions.</p>
+        <div class="chip-row">
+          <span class="chip">comparing</span>
+          <span class="chip">complex comparing — and / or / not</span>
+          <span class="chip">else</span>
+          <span class="chip">elif</span>
+          <span class="chip">nested if / else</span>
+          <span class="chip">if if vs if else</span>
+          <span class="chip">true condition</span>
+          <span class="chip">different types comparison</span>
+          <span class="chip">edge cases</span>
+          <span class="chip">switch case → match / case</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">03</span>
+          <span class="ex-title">Loops — while</span>
+        </div>
+        <p>Repeat while a condition stays true. Update the state every round or the loop never ends.</p>
+        <div class="chip-row">
+          <span class="chip">while</span>
+          <span class="chip">infinite loop</span>
+          <span class="chip">counter</span>
+          <span class="chip">multiple counters</span>
+          <span class="chip">update state</span>
+          <span class="chip">conditions</span>
+          <span class="chip">while True</span>
+          <span class="chip">break</span>
+          <span class="chip">continue</span>
+          <span class="chip">do-while as while True</span>
+          <span class="chip">counter ascend</span>
+          <span class="chip">counter descend</span>
+          <span class="chip">recursion</span>
+        </div>
+        <div class="logic-box">
+          <div class="sub-label">Loop logic — ask every time</div>
+          <ol>
+            <li>What do I start with?</li>
+            <li>What condition keeps me going?</li>
+            <li>What changes every iteration?</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">04</span>
+          <span class="ex-title">Loops — for</span>
+        </div>
+        <p>Use for when you already know the collection or the range you will walk through.</p>
+        <div class="chip-row">
+          <span class="chip">for</span>
+          <span class="chip">iterating over a list</span>
+          <span class="chip">range</span>
+          <span class="chip">nested loops</span>
+          <span class="chip">iterating through a string</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>01–04 · Basics, if, loops</span>
+    <span>03</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">05–09 · Building blocks</p>
+    <h1 class="sec-title">Functions, arrays, class, strings</h1>
+
+    <div class="ex-list">
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">05</span>
+          <span class="ex-title">Functions</span>
+        </div>
+        <p>Name a piece of work, pass it values, and either return a result or just do an action.</p>
+        <div class="chip-row">
+          <span class="chip">naming</span>
+          <span class="chip">parameter</span>
+          <span class="chip">return function</span>
+          <span class="chip">void function</span>
+          <span class="chip">local variables</span>
+          <span class="chip">calling a function</span>
+          <span class="chip">default parameters</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">06</span>
+          <span class="ex-title">Arrays — lists</span>
+        </div>
+        <p>Ordered, changeable collection. Access by index, then grow or shrink it with list operations.</p>
+        <div class="chip-row">
+          <span class="chip">creating</span>
+          <span class="chip">indexing</span>
+          <span class="chip">negative indexes</span>
+          <span class="chip">accessing elements</span>
+          <span class="chip">modifying elements</span>
+          <span class="chip">length</span>
+          <span class="chip">iteration</span>
+          <span class="chip">append</span>
+          <span class="chip">reverse</span>
+          <span class="chip">in</span>
+          <span class="chip">len</span>
+          <span class="chip">insert</span>
+          <span class="chip">remove</span>
+          <span class="chip">pop</span>
+          <span class="chip">clear</span>
+          <span class="chip">index</span>
+          <span class="chip">count</span>
+          <span class="chip">sort</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">07</span>
+          <span class="ex-title">Arrays — dictionary</span>
+        </div>
+        <p>Key → value store. Read, update, and delete by key — not by position.</p>
+        <div class="chip-row">
+          <span class="chip">create</span>
+          <span class="chip">read</span>
+          <span class="chip">update</span>
+          <span class="chip">delete</span>
+          <span class="chip">get()</span>
+          <span class="chip">keys()</span>
+          <span class="chip">values()</span>
+          <span class="chip">items()</span>
+          <span class="chip">in</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">08</span>
+          <span class="ex-title">Class</span>
+        </div>
+        <p>A class is the blueprint. An object is one instance with its own attributes and methods.</p>
+        <div class="chip-row">
+          <span class="chip">class</span>
+          <span class="chip">objects</span>
+          <span class="chip">attributes</span>
+          <span class="chip">methods</span>
+          <span class="chip">self</span>
+          <span class="chip">constructor</span>
+          <span class="chip">inheritance</span>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">09</span>
+          <span class="ex-title">Strings</span>
+        </div>
+        <p>Text is a sequence of characters. Index, slice, and clean it with the built-in methods.</p>
+        <div class="chip-row">
+          <span class="chip">indexing</span>
+          <span class="chip">slicing</span>
+          <span class="chip">len</span>
+          <span class="chip">lower</span>
+          <span class="chip">upper</span>
+          <span class="chip">strip</span>
+          <span class="chip">split</span>
+          <span class="chip">join</span>
+          <span class="chip">replace</span>
+          <span class="chip">find</span>
+          <span class="chip">in</span>
+          <span class="chip">iterating</span>
+          <span class="chip">ASCII</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>05–09 · Functions to strings</span>
+    <span>04</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">10–11 · Errors &amp; data</p>
+    <h1 class="sec-title">Debugging and data structures</h1>
+
+    <div class="ex-list">
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-num">10</span>
+          <span class="ex-title">Debugging &amp; exceptions</span>
+        </div>
+        <p>Know the kinds of errors, how to read a traceback, and how to handle them in Python.</p>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <h4>Syntax</h4>
+            <p>The code cannot run. Python stops before starting.</p>
+          </div>
+          <div class="mini-card">
+            <h4>Runtime</h4>
+            <p>The program starts, then crashes. Read the traceback.</p>
+          </div>
+          <div class="mini-card">
+            <h4>Logical</h4>
+            <p>It runs, but the answer is wrong. Trace the values.</p>
+          </div>
+        </div>
+        <div class="chip-row">
+          <span class="chip">reading tracebacks</span>
+          <span class="chip">try</span>
+          <span class="chip">except</span>
+          <span class="chip">else</span>
+          <span class="chip">finally</span>
+          <span class="chip">raise</span>
+        </div>
+        <p class="hint">try / except catch runtime errors. else runs if nothing failed. finally always runs. raise throws an error on purpose.</p>
+      </div>
+    </div>
+
+    <p class="sub-label block-label">11 · Data structures — how you store and organize data</p>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <h3>Array / List</h3>
+        <p>Store ordered data. Access by index. Example: <strong>[10, 20, 30]</strong></p>
+      </div>
+      <div class="ref-card">
+        <h3>String</h3>
+        <p>Store and process text. Characters can be accessed by index.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Dictionary / Hash map</h3>
+        <p>Store key → value. Fast lookup. Frequency counting and mappings.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Set</h3>
+        <p>Store unique values. Fast membership checking. Removing or checking duplicates.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Stack</h3>
+        <p>LIFO — last in, first out. Undo, parentheses, nested operations.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Queue</h3>
+        <p>FIFO — first in, first out. Process things in arrival order.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Tuple</h3>
+        <p>Ordered, immutable collection. Useful for fixed groups of values. Optional.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>10–11 · Errors &amp; data structures</span>
+    <span>05</span>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-body">
+    <p class="page-kicker">12 · Problem-solving patterns</p>
+    <h1 class="sec-title">Problem-solving patterns</h1>
+    <p>Ways of thinking — approaches for solving problems efficiently.</p>
+
+    <div class="ref-grid">
+      <div class="ref-card">
+        <h3>Brute force</h3>
+        <p>Try all possibilities. Usually the starting point.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Two pointers</h3>
+        <p>Use two indexes instead of repeatedly scanning. Common with arrays and strings. Often O(n).</p>
+      </div>
+      <div class="ref-card">
+        <h3>Sliding window</h3>
+        <p>Maintain a moving range / window. Subarray and substring problems.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Hash map / frequency counting</h3>
+        <p>Use a dictionary or set to avoid repeated searching. Counting, duplicates, lookup, Two Sum.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Binary search</h3>
+        <p>Search a sorted space by repeatedly cutting it in half. O(log n).</p>
+      </div>
+      <div class="ref-card">
+        <h3>Stack pattern</h3>
+        <p>Use stack behaviour for nested or order-dependent problems. Parentheses, monotonic stack, undo.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Sorting + searching</h3>
+        <p>Sort first to make a problem easier, then use pointers, binary search, or similar.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Prefix sum</h3>
+        <p>Precompute cumulative values. Quickly calculate range sums.</p>
+      </div>
+      <div class="ref-card">
+        <h3>Recursion / divide &amp; conquer</h3>
+        <p>Break a problem into smaller versions of itself. Trees, backtracking, divide-and-conquer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Etkan Engineering Teams</span>
+    <span>12 · Problem-solving patterns</span>
+    <span>06</span>
+  </div>
+</div>
+<div class="doc-toolbar" id="doc-toolbar">
+  <button type="button" class="tb-btn tb-primary" id="btn-export">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>
+    </svg>
+    <span class="tb-text">Export PDF</span>
+  </button>
+  <button type="button" class="tb-btn tb-secondary" id="btn-preview">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+    <span class="tb-text">Preview PDF</span>
+  </button>
+</div>
+
+<div class="pdf-preview" id="pdf-preview" hidden>
+  <div class="pdf-preview-bar">
+    <span class="pdf-preview-title">PDF Preview</span>
+    <button type="button" class="tb-btn tb-ghost" id="btn-close-preview">Close</button>
+  </div>
+  <iframe id="pdf-frame" title="PDF Preview"></iframe>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../shared/export.js"></script>
+</body>
+</html>

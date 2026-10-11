@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 03 — Python Course</title>
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-pdf-name="Python-Course-Lab-03.pdf">
+
+<div class="page page-cover">
+  <div class="cover-bracket-row">
+    <span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span><span>&lt;/&gt;</span>
+  </div>
+
+  <div class="cover-brand">Python Course</div>
+
+  <div class="cover-hero">
+    <img class="cover-logo" src="../mahdi-shamas/assets/images/logo.png" alt="Etkan">
+  </div>
+
+  <div class="cover-textblock">
+    <div class="cover-eyebrow">Laboratory sheet</div>
+    <div class="cover-title">Lab 03</div>
+    <div class="cover-rule"></div>
+    <div class="cover-desc">One app that grows every lesson: Student Study Tracker — strings, loops, search, errors, and recursion.</div>
+  </div>
+
+  <div class="cover-meta">
+    <div><b>Prepared by:</b> Etkan Engineering Teams</div>
+    <div><b>Course:</b> Python · Lab 03</div>
+    <div><b>Date:</b> August 2026</div>
+  </div>
+
+  <div class="cover-footer">
+    <span>Python Course</span>
+    <span>Lab 03</span>
+    <span>01</span>
+  </div>
+</div>
+
+<!-- Source blocks: packed into A4 pages by shared/pack.js (whole block stays together) -->
+<div id="pack-source" hidden aria-hidden="true">
+
+  <div class="content-block" data-label="Overview">
+    <p class="page-kicker">Lab 03 · Project</p>
+    <h1 class="sec-title">Student Study Tracker</h1>
+    <div class="note">You are not solving 20 separate exercises. You build <strong>one console app</strong>. Each step adds a feature to the same program. Later steps reuse what you wrote earlier.</div>
+    <p style="margin-top:3mm">Starting idea: a student enters their name and manages a list of study subjects. By the end, the app has a full menu, tasks, progress, profile, IDs, countdown, and error handling.</p>
+    <p class="sub-label block-label">How the steps connect</p>
+    <div class="flow-row">
+      <div class="flow-step"><strong>1–2</strong>Name → clean input</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><strong>3–4</strong>Subjects list</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><strong>5–6</strong>Menu + search</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><strong>7–9</strong>Text tools + profile</div>
+    </div>
+    <div class="flow-row" style="margin-top:1.6mm">
+      <div class="flow-step"><strong>10–12</strong>Details + tasks + progress</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><strong>13–15</strong>ID + errors + countdown</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><strong>Final</strong>All features in one menu</div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Overview">
+    <div class="logic-box">
+      <div class="sub-label">Teaching pattern (every feature)</div>
+      <ol>
+        <li>Basic version</li>
+        <li>Edge case</li>
+        <li>Bug</li>
+        <li>Improvement</li>
+        <li>New feature</li>
+      </ol>
+    </div>
+    <p class="sub-label block-label">Example path for “Add subject”</p>
+    <div class="chip-row">
+      <span class="chip">empty name?</span>
+      <span class="chip">spaces only?</span>
+      <span class="chip">number instead?</span>
+      <span class="chip">duplicate?</span>
+      <span class="chip">then search</span>
+      <span class="chip">then delete</span>
+      <span class="chip">then tasks</span>
+      <span class="chip">then progress</span>
+    </div>
+    <p class="sub-label block-label">Phases in this lab</p>
+    <div class="mini-grid" style="grid-template-columns:1fr 1fr 1fr 1fr">
+      <div class="mini-card"><h4>1–2</h4><p>Hello + subjects</p></div>
+      <div class="mini-card"><h4>3–4</h4><p>Menu + search</p></div>
+      <div class="mini-card"><h4>5–6</h4><p>Split/join + profile</p></div>
+      <div class="mini-card"><h4>7–8</h4><p>Details + nested</p></div>
+      <div class="mini-card"><h4>9–10</h4><p>Progress + ID</p></div>
+      <div class="mini-card"><h4>11–12</h4><p>ASCII + errors</p></div>
+      <div class="mini-card"><h4>13–14</h4><p>Logic + recursion</p></div>
+      <div class="mini-card"><h4>Final</h4><p>Full menu app</p></div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Phases 1–2">
+    <p class="page-kicker">Lab 03 · Phases 1–2</p>
+    <h1 class="sec-title">Hello, Student · Subjects</h1>
+    <p class="hint" style="margin-top:0">These two steps create the base of the app: who is using it, and what they are studying.</p>
+  </div>
+
+  <div class="content-block" data-label="Exercise 01">
+    <div class="ex-card">
+      <div class="phase-label">Phase 1 · Steps 1–2</div>
+      <div class="ex-head">
+        <span class="ex-num">01</span>
+        <span class="ex-title">Name welcome &amp; clean input</span>
+      </div>
+      <div class="chain-line"><strong>First step.</strong> You store the student name — every later feature (profile, ID, ASCII) will use this same variable.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Ask for the student’s name with <code>input()</code></li>
+        <li>Print a welcome like <code>Welcome, Ali!</code></li>
+        <li>Show the same name in uppercase and lowercase</li>
+        <li>Remove extra spaces with <code>strip()</code> before using the name</li>
+      </ul>
+      <p><strong>Step 1:</strong> Ask for the student’s name. Print <code>Welcome, Ali!</code> Show the name in uppercase and lowercase.</p>
+      <p><strong>Step 2:</strong> The student may type <code>"&nbsp;&nbsp;&nbsp;Ali&nbsp;&nbsp;&nbsp;"</code> — remove extra spaces before using the name.</p>
+      <div class="chip-row">
+        <span class="chip">upper</span>
+        <span class="chip">lower</span>
+        <span class="chip">strip</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 03 uses loops to collect subjects for this student.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercise 02">
+    <div class="ex-card">
+      <div class="phase-label">Phase 2 · Steps 3–4</div>
+      <div class="ex-head">
+        <span class="ex-num">02</span>
+        <span class="ex-title">Collect and list subjects</span>
+      </div>
+      <div class="chain-line"><strong>Builds on:</strong> the name from Step 01. <strong>Creates:</strong> a subjects list that the menu, search, tasks, and progress steps all need later.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Ask how many subjects to add</li>
+        <li>Loop that many times and read each subject name</li>
+        <li>Store subjects in a list</li>
+        <li>Print every subject with a number: <code>1. Python</code>, <code>2. Math</code>, …</li>
+      </ul>
+      <p><strong>Step 3:</strong> Ask how many subjects to add. Use a loop to read each subject.</p>
+      <div class="console">How many subjects? 3
+
+Subject 1: Python
+Subject 2: Math
+Subject 3: Physics</div>
+      <p style="margin-top:2.5mm"><strong>Step 4:</strong> Display all subjects with a counter:</p>
+      <div class="console">1. Python
+2. Math
+3. Physics</div>
+      <div class="chip-row">
+        <span class="chip">range</span>
+        <span class="chip">iterating</span>
+        <span class="chip">loop logic</span>
+        <span class="chip">counter</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 05 wraps this in a menu so the user can add/show subjects without restarting the program.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Phases 3–4">
+    <p class="page-kicker">Lab 03 · Phases 3–4</p>
+    <h1 class="sec-title">Interactive menu · Searching</h1>
+    <p class="hint" style="margin-top:0">Now the app stops being “run once and exit”. The subjects list becomes interactive.</p>
+  </div>
+
+  <div class="content-block" data-label="Exercise 03">
+    <div class="ex-card">
+      <div class="phase-label">Phase 3 · Step 5</div>
+      <div class="ex-head">
+        <span class="ex-num">03</span>
+        <span class="ex-title">Keep the program running</span>
+      </div>
+      <div class="chain-line"><strong>Builds on:</strong> the subjects list from Step 02. <strong>Adds:</strong> a loop around the whole app so the user picks actions from a menu.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Show a menu with at least: Add subject, Show subjects, Search subject, Exit</li>
+        <li>Read the user’s choice</li>
+        <li>Run the matching action</li>
+        <li>Repeat until the user chooses Exit</li>
+      </ul>
+      <p>Add a menu. The program should keep running until the user chooses Exit.</p>
+      <div class="console">===== STUDY TRACKER =====
+
+1. Add subject
+2. Show subjects
+3. Search subject
+4. Exit</div>
+      <div class="chip-row">
+        <span class="chip">loop logic</span>
+        <span class="chip">range</span>
+        <span class="chip">menu cycle</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 06 makes “Search subject” actually find a name in your list.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercise 04">
+    <div class="ex-card">
+      <div class="phase-label">Phase 4 · Step 6</div>
+      <div class="ex-head">
+        <span class="ex-num">04</span>
+        <span class="ex-title">Search subject (any case)</span>
+      </div>
+      <div class="chain-line"><strong>Builds on:</strong> menu option 3 + subjects list. <strong>Same idea returns</strong> in Step 07 when you search inside a description.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Ask which subject to search for</li>
+        <li>Compare without caring about uppercase/lowercase</li>
+        <li>Print <code>Subject found!</code> if it exists, otherwise say it was not found</li>
+      </ul>
+      <p>Search must work for <code>Python</code>, <code>PYTHON</code>, <code>python</code>, or <code>PyThOn</code>.</p>
+      <div class="console">Search subject: python
+
+Subject found!</div>
+      <div class="chip-row">
+        <span class="chip">find</span>
+        <span class="chip">in (strings)</span>
+        <span class="chip">lower</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Steps 07–08 improve how text is entered and inspected (split, join, profile).</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Phases 5–6">
+    <p class="page-kicker">Lab 03 · Phases 5–6</p>
+    <h1 class="sec-title">Better text · Student profile</h1>
+    <p class="hint" style="margin-top:0">Two different uses of strings: bulk input for subjects, and inspecting the student’s own name.</p>
+  </div>
+
+  <div class="content-block" data-label="Exercise 05">
+    <div class="ex-card">
+      <div class="phase-label">Phase 5 · Steps 7–8</div>
+      <div class="ex-head">
+        <span class="ex-num">05</span>
+        <span class="ex-title">Split many subjects · Join a sentence</span>
+      </div>
+      <div class="chain-line"><strong>Alternative to Step 03:</strong> instead of typing subjects one by one, the user enters one comma-separated line. You still end up with the same subjects list.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Read one line like <code>Python, Math, Physics, English</code></li>
+        <li>Split it into a list of subject names</li>
+        <li>Display the subjects from that list</li>
+        <li>Join them into one readable sentence ending with “and” before the last item</li>
+      </ul>
+      <p><strong>Step 7:</strong> Allow one line of subjects, then convert to a list and display them.</p>
+      <div class="console">Enter subjects:
+Python, Math, Physics, English</div>
+      <p style="margin-top:2.5mm"><strong>Step 8:</strong> Build a readable sentence from the list.</p>
+      <div class="console">You are studying Python, Math and Physics.</div>
+      <div class="chip-row">
+        <span class="chip">split</span>
+        <span class="chip">join</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 09 inspects the student name you saved in Step 01.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercise 06">
+    <div class="ex-card">
+      <div class="phase-label">Phase 6 · Step 9</div>
+      <div class="ex-head">
+        <span class="ex-num">06</span>
+        <span class="ex-title">Student profile — inspect the name</span>
+      </div>
+      <div class="chain-line"><strong>Builds on:</strong> cleaned name from Step 02. <strong>Prepares for:</strong> Step 10 (student ID) and Step 11 (ASCII code) — both walk through the same name string.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Store profile fields: name and grade</li>
+        <li>Print first letter, last letter, and total length of the name</li>
+        <li>Use indexing / slicing on the name after <code>strip()</code></li>
+      </ul>
+      <p>Profile fields: name and grade. Then show first letter, last letter, and length.</p>
+      <div class="console">Name: Ali Sweid
+Grade: 11
+
+First letter of name: A
+Last letter of name: d
+Name length: 9</div>
+      <p class="hint">Count spaces carefully — length depends on the exact string after strip.</p>
+      <div class="chip-row">
+        <span class="chip">indexing</span>
+        <span class="chip">len</span>
+        <span class="chip">slicing</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 07 adds a description to each subject; Step 08 adds tasks under each subject.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Phases 7–8">
+    <p class="page-kicker">Lab 03 · Phases 7–8</p>
+    <h1 class="sec-title">Subject details · Nested loops</h1>
+    <p class="hint" style="margin-top:0">Each subject becomes richer: first a description, then a list of tasks inside it.</p>
+  </div>
+
+  <div class="content-block" data-label="Exercise 07">
+    <div class="ex-card">
+      <div class="phase-label">Phase 7</div>
+      <div class="ex-head">
+        <span class="ex-num">07</span>
+        <span class="ex-title">Description + search inside text</span>
+      </div>
+      <div class="chain-line"><strong>Same skill as Step 06,</strong> but now you search for a word inside longer text (the description), not just a subject name.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Each subject has a description (text you store with it)</li>
+        <li>Ask the user for a search word</li>
+        <li>Check if that word appears in the description (case-insensitive)</li>
+        <li>Print <code>Found!</code> or not found</li>
+      </ul>
+      <p>Each subject gets a description. Search for a word inside that description.</p>
+      <div class="console">Subject: Python
+Description: Programming language
+
+Search word: programming
+Found!</div>
+      <div class="chip-row">
+        <span class="chip">find</span>
+        <span class="chip">in</span>
+        <span class="chip">iterating through string</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 08 nests another list (tasks) inside each subject.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercise 08">
+    <div class="ex-card">
+      <div class="phase-label">Phase 8 · Step 10</div>
+      <div class="ex-head">
+        <span class="ex-num">08</span>
+        <span class="ex-title">Subjects with study tasks</span>
+      </div>
+      <div class="chain-line"><strong>Builds on:</strong> subjects list. <strong>Prepares for:</strong> Step 09 progress tracker — you will count how many of these tasks are done.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Each subject has its own list of tasks</li>
+        <li>Print subject name, then numbered tasks indented under it</li>
+        <li>Use a loop inside a loop: outer = subjects, inner = tasks</li>
+      </ul>
+      <p>Each subject has several tasks. Display them with nested counters.</p>
+      <div class="console">Python
+  1. Variables
+  2. Conditions
+  3. Loops
+
+Math
+  1. Algebra
+  2. Functions</div>
+      <p class="hint">Concept: for each subject → for each task → display task</p>
+      <div class="chip-row">
+        <span class="chip">nested loops</span>
+        <span class="chip">multiple counter</span>
+        <span class="chip">iterating</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 09 counts completed vs remaining tasks from this structure.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Phases 9–10">
+    <p class="page-kicker">Lab 03 · Phases 9–10</p>
+    <h1 class="sec-title">Progress · Student ID</h1>
+    <p class="hint" style="margin-top:0">Progress uses the tasks from Step 08. Student ID uses the name from Step 01 / profile from Step 09.</p>
+  </div>
+
+  <div class="content-block" data-label="Exercise 09">
+    <div class="ex-card">
+      <div class="phase-label">Phase 9 · Steps 11–12</div>
+      <div class="ex-head">
+        <span class="ex-num">09</span>
+        <span class="ex-title">Progress tracker</span>
+      </div>
+      <div class="chain-line"><strong>Builds on:</strong> tasks from Step 08. <strong>Watch out:</strong> Step 13 shows a wrong formula for remaining tasks — that is a logical error on purpose.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Ask total number of tasks and how many are completed</li>
+        <li>Calculate and print total, completed, and remaining</li>
+        <li>Count down remaining tasks: 4, 3, 2, 1 (descending loop)</li>
+        <li>Optional: show a simple progress bar like <code>Python ██████░░░░ 60%</code></li>
+      </ul>
+      <p>Ask how many tasks are completed (no advanced dicts required yet). Show totals, then remaining with a <strong>descending</strong> counter.</p>
+      <div class="two-up">
+        <div class="console">Total tasks: 10
+Completed: 6
+Remaining: 4</div>
+        <div class="console">Remaining tasks:
+4
+3
+2
+1</div>
+      </div>
+      <p class="hint" style="margin-top:2mm">Optional visual: Python ██████░░░░ 60%</p>
+      <div class="chip-row">
+        <span class="chip">counter descend</span>
+        <span class="chip">range</span>
+        <span class="chip">loop logic</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 10 turns the student name into a short ID code.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercise 10">
+    <div class="ex-card">
+      <div class="phase-label">Phase 10</div>
+      <div class="ex-head">
+        <span class="ex-num">10</span>
+        <span class="ex-title">Generate student ID</span>
+      </div>
+      <div class="chain-line"><strong>Builds on:</strong> name string from profile. Uses slicing and string methods — same tools as Step 09, applied differently.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Start from a full name like <code>Ali Sweid</code></li>
+        <li>Build a code like <code>ALI-SWE</code> using indexing, slicing, upper/lower, and replace</li>
+        <li>Print the generated ID</li>
+      </ul>
+      <p>From <code>Ali Sweid</code> build something like <code>ALI-SWE</code> using indexing, slicing, upper/lower, and replace.</p>
+      <div class="chip-row">
+        <span class="chip">indexing</span>
+        <span class="chip">slicing</span>
+        <span class="chip">upper</span>
+        <span class="chip">replace</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 11 walks through every character in the name for ASCII values.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Phases 11–12">
+    <p class="page-kicker">Lab 03 · Phases 11–12</p>
+    <h1 class="sec-title">ASCII · Errors &amp; debugging</h1>
+    <p class="hint" style="margin-top:0">Step 11 extends string iteration. Steps 13–15 deliberately break the app so you learn to read errors.</p>
+  </div>
+
+  <div class="content-block" data-label="Exercise 11">
+    <div class="ex-card">
+      <div class="phase-label">Phase 11</div>
+      <div class="ex-head">
+        <span class="ex-num">11</span>
+        <span class="ex-title">ASCII student code</span>
+      </div>
+      <div class="chain-line"><strong>Builds on:</strong> the same name string. Instead of slicing parts, you visit every character one by one.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Loop through each character in the student name</li>
+        <li>Print the character and its ASCII value</li>
+        <li>Combine values into a simple code (your design)</li>
+      </ul>
+      <p>Walk each character in the name. Show ASCII values and combine them into a simple code.</p>
+      <div class="console">Name: Ali
+
+A = 65
+l = 108
+i = 105</div>
+      <p class="hint">for character in name: …</p>
+      <div class="chip-row">
+        <span class="chip">ASCII</span>
+        <span class="chip">iterating through string</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Steps 13–15 break the Study Tracker on purpose — fix and understand each error type.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercise 12">
+    <div class="ex-card">
+      <div class="phase-label">Phase 12 · Steps 13–15</div>
+      <div class="ex-head">
+        <span class="ex-num">12</span>
+        <span class="ex-title">Break it on purpose</span>
+      </div>
+      <div class="chain-line"><strong>Uses your real app code</strong> (menu, input, name indexing). Each step is a different error category.</div>
+      <p class="sub-label">Required — do all three</p>
+      <ul class="req-list">
+        <li><strong>Step 13 — Syntax:</strong> remove the colon after <code>if</code>, run the program, read the traceback</li>
+        <li><strong>Step 14 — Runtime:</strong> use <code>int(input(...))</code> when the user types <code>hello</code> → catch <code>ValueError</code> with <code>except</code></li>
+        <li><strong>Step 15 — Index:</strong> with <code>name = "Ali"</code>, try <code>print(name[10])</code> → explain the <code>IndexError</code></li>
+      </ul>
+      <p><strong>Step 13 — Syntax:</strong> missing colon after <code>if</code>. Read the traceback.</p>
+      <div class="console">if choice == 1
+    print("Add subject")</div>
+      <p style="margin-top:2.5mm"><strong>Step 14 — Runtime:</strong> <code>int(input(...))</code> when the user types <code>hello</code> → <code>ValueError</code>. Introduce <code>except</code>.</p>
+      <p><strong>Step 15 — Index:</strong> <code>name = "Ali"</code> then <code>print(name[10])</code> → <code>IndexError</code>. Why?</p>
+      <div class="chip-row">
+        <span class="chip">syntax errors</span>
+        <span class="chip">runtime errors</span>
+        <span class="chip">except</span>
+        <span class="chip">tracebacks</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Step 13 (logical error) — code runs but gives the wrong remaining count.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Phases 13–14">
+    <p class="page-kicker">Lab 03 · Phases 13–14 · Final menu</p>
+    <h1 class="sec-title">Logical errors · Recursion · Final app</h1>
+    <p class="hint" style="margin-top:0">Last concepts, then combine every previous step into one full menu.</p>
+  </div>
+
+  <div class="content-block" data-label="Exercise 13">
+    <div class="ex-card">
+      <div class="phase-label">Phase 13</div>
+      <div class="ex-head">
+        <span class="ex-num">13</span>
+        <span class="ex-title">Runs, but wrong answer</span>
+      </div>
+      <div class="chain-line"><strong>Connects to Step 09:</strong> same progress feature, but the math is wrong. Python does not crash — you must spot the mistake yourself.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Use a wrong formula like <code>remaining = total - completed + 1</code></li>
+        <li>Run it and notice the output does not match reality</li>
+        <li>Explain why this is a <strong>logical error</strong> (not syntax, not runtime)</li>
+      </ul>
+      <p>Code like <code>remaining = total - completed + 1</code> does not crash — the result is wrong. No error message. That is a <strong>logical error</strong>.</p>
+      <p class="panel-note"><strong>Next:</strong> Step 14 rewrites the study countdown — first with a loop, then with recursion.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Exercise 14">
+    <div class="ex-card">
+      <div class="phase-label">Phase 14</div>
+      <div class="ex-head">
+        <span class="ex-num">14</span>
+        <span class="ex-title">Study countdown — then recursion</span>
+      </div>
+      <div class="chain-line"><strong>Two versions of the same feature:</strong> loop first (what you already know), then the function calls itself.</div>
+      <p class="sub-label">Required</p>
+      <ul class="req-list">
+        <li>Print a countdown from 5 down to 1, then <code>Study time!</code></li>
+        <li>First version: use a loop</li>
+        <li>Second version: same output, but a function calls itself (recursion)</li>
+      </ul>
+      <p>First with a loop, then: can a function call itself to print the same countdown?</p>
+      <div class="console">5
+4
+3
+2
+1
+Study time!</div>
+      <div class="chip-row">
+        <span class="chip">recursion</span>
+        <span class="chip">loop first</span>
+      </div>
+      <p class="panel-note"><strong>Next:</strong> Final step — wire every feature into one menu.</p>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Final menu">
+    <div class="ex-card">
+      <div class="phase-label">Final target</div>
+      <div class="ex-head">
+        <span class="ex-num">15</span>
+        <span class="ex-title">Full Study Tracker menu</span>
+      </div>
+      <div class="chain-line"><strong>Everything connects here.</strong> Each menu option should map to a step you already built.</div>
+      <p class="sub-label">Required — your final app must include</p>
+      <ul class="req-list">
+        <li>Welcome with cleaned student name (Steps 01–02)</li>
+        <li>Add / show / search subjects (Steps 03–06)</li>
+        <li>Tasks under subjects (Step 08) and progress (Step 09)</li>
+        <li>Student profile and ID (Steps 09–10)</li>
+        <li>Study countdown (Step 14) and Exit to quit (Step 05)</li>
+      </ul>
+      <div class="console">================================
+        STUDY TRACKER
+================================
+Welcome, ALI!
+
+1. Add subject          6. Track progress
+2. Show subjects        7. Student profile
+3. Search subjects      8. Generate student ID
+4. Add tasks            9. Start study countdown
+5. Show tasks           0. Exit
+
+Choose:</div>
+    </div>
+  </div>
+
+  <div class="content-block" data-label="Topic map">
+    <p class="page-kicker">Lab 03 · Topic map</p>
+    <h1 class="sec-title">Where each topic appears</h1>
+    <p>Every concept appears inside the Study Tracker — not as a random exercise. Use this map to see which step introduced each topic and what comes next.</p>
+  </div>
+
+  <div class="content-block" data-label="Topic map">
+    <table class="topic-map">
+      <thead>
+        <tr><th>Topic</th><th>Where introduced</th><th>Used again in</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Upper / Lower / Strip</td><td>Step 01 — welcome + clean name</td><td>Profile, search, ID</td></tr>
+        <tr><td>Range · Iterating · Loop logic</td><td>Steps 03–05 — subjects + menu</td><td>Tasks, progress, countdown</td></tr>
+        <tr><td>Counter / Counter descend</td><td>Step 04 — list subjects</td><td>Step 09 — remaining tasks</td></tr>
+        <tr><td>Find · In · Lower</td><td>Step 06 — search subject</td><td>Step 07 — search description</td></tr>
+        <tr><td>Split · Join</td><td>Steps 07–08 — bulk subjects</td><td>Final menu (add subjects)</td></tr>
+        <tr><td>Indexing · Len · Slicing</td><td>Step 09 — profile</td><td>Steps 10–11 — ID + ASCII</td></tr>
+        <tr><td>Nested loops · Multiple counter</td><td>Step 08 — subjects → tasks</td><td>Step 09 — count progress</td></tr>
+        <tr><td>ASCII · String iteration</td><td>Step 11 — name codes</td><td>—</td></tr>
+        <tr><td>Syntax / Runtime / Index / Except</td><td>Steps 13–15 — error phase</td><td>Protect menu input</td></tr>
+        <tr><td>Logical errors</td><td>Step 13 — wrong progress formula</td><td>Debug Step 09 math</td></tr>
+        <tr><td>Recursion</td><td>Step 14 — study countdown</td><td>Final menu option 9</td></tr>
+        <tr><td>Replace</td><td>Step 10 — student ID</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block" data-label="Instructor">
+    <div class="note" style="margin-bottom:0">Instructors: use <a href="lab-3-checklist.md" style="color:var(--navy);font-weight:800">Lab 03 correction checklist</a> (Markdown) to tick each requirement while testing the student’s program.</div>
+  </div>
+
+</div>
+
+<div id="pack-target"></div>
+
+<div class="doc-toolbar" id="doc-toolbar">
+  <button type="button" class="tb-btn tb-primary" id="btn-export">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>
+    </svg>
+    <span class="tb-text">Export PDF</span>
+  </button>
+  <button type="button" class="tb-btn tb-secondary" id="btn-preview">
+    <span class="tb-spinner" aria-hidden="true"></span>
+    <svg class="tb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+    <span class="tb-text">Preview PDF</span>
+  </button>
+</div>
+
+<div class="pdf-preview" id="pdf-preview" hidden>
+  <div class="pdf-preview-bar">
+    <span class="pdf-preview-title">PDF Preview</span>
+    <button type="button" class="tb-btn tb-ghost" id="btn-close-preview">Close</button>
+  </div>
+  <iframe id="pdf-frame" title="PDF Preview"></iframe>
+</div>
+
+<script>
+  window.PROPOSAL = {
+    filename: "Python-Course-Lab-03.pdf",
+    footerBrand: "Etkan Engineering Teams",
+    packReady: "__pythonLabPackReady"
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../shared/pack.js"></script>
+<script src="../shared/export.js"></script>
+</body>
+</html>
