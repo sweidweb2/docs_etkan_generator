@@ -229,7 +229,7 @@ Official document for all registered Learning Path students (EN + AR). Key opera
 
 ### Equipment & workspace
 - Student must bring/maintain a suitable **laptop**  
-- Workspace usable with management coordination; internet available  
+- Lab and workspace usable with management coordination; internet available  
 - Parauniversity equipment needs prior approval  
 - Cleanliness / respect for shared spaces required  
 
@@ -249,7 +249,6 @@ Official document for all registered Learning Path students (EN + AR). Key opera
 ### IP & projects
 - Student projects developed in the parauniversity are **open source**; students may share and build on them  
 - ETKAN may **close** a project (stop/limit public sharing) by management decision  
-- Management may showcase projects  
 - Unpublished roadmaps / internal docs / learning resources stay internal — no redistribution without authorization  
 
 ### Acknowledgment
