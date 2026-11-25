@@ -208,8 +208,8 @@ Official document for all registered Learning Path students (EN + AR). Key opera
 ### Tuition (regulations — current operating price)
 - Standard phase: **$350** total  
   - Initial **$100**  
-  - Remaining **$250** over next **5 months** (default)  
-- Other schedules possible with management  
+  - Remaining balance split equally over remaining time by default (remaining ÷ remaining time)  
+- Schedule may be adjusted to fit the student, with management  
 - Generally **non-refundable**  
 - Missed payments → management contacts student  
 
@@ -229,7 +229,7 @@ Official document for all registered Learning Path students (EN + AR). Key opera
 
 ### Equipment & workspace
 - Student must bring/maintain a suitable **laptop**  
-- Lab and workspace usable with management coordination; internet available  
+- Lab and workspace usable; internet available  
 - Parauniversity equipment needs prior approval  
 - Cleanliness / respect for shared spaces required  
 
